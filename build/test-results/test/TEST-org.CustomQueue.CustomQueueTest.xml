@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.CustomQueue.CustomQueueTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2024-03-07T16:38:38" hostname="Benjamins-MacBook-Air.local" time="0.024">
+  <properties/>
+  <testcase name="givenDefaultQueue_returns_false_whenOffering_whenQueueIsFull()" classname="org.CustomQueue.CustomQueueTest" time="0.006"/>
+  <testcase name="givenDefaultQueue_which_contains_oneElementOf_10_returns_1_withSizeOf_0_on_poll()" classname="org.CustomQueue.CustomQueueTest" time="0.002"/>
+  <testcase name="givenDefaultQueue_whenAdding_32_values_returnsQueueSizeOf_64()" classname="org.CustomQueue.CustomQueueTest" time="0.001"/>
+  <testcase name="givenDefaultQueue_is_empty_returns_null_on_poll()" classname="org.CustomQueue.CustomQueueTest" time="0.001"/>
+  <testcase name="givenDefaultQueue_returns_true_whenAdding_10()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenQueueOfSize_10_which_contains_oneElementOf_10_returns_10_withSizeOf_0_on_remove()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenDefaultQueue_returns_NullPointerException_whenOfferingNullItem()" classname="org.CustomQueue.CustomQueueTest" time="0.001"/>
+  <testcase name="givenQueue_ofSize_10_returns_NullPointerException_whenAdding_null()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenQueueOfSize_0_returns_false_whenOffering_10()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenDefaultQueue_returns_sizeOf_32()" classname="org.CustomQueue.CustomQueueTest" time="0.001"/>
+  <testcase name="givenQueueOfSize_2_whenAdding_10_values_returnsQueueSizeOf_16()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenQueueOfSize_10_which_contains_oneElementOf_10_returns_10_withSizeOf_0_on_poll()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenQueueOfSize_8_which_contains_threeElementsOf_10_returns_10_withQueueSize_4_on_poll_6_times()" classname="org.CustomQueue.CustomQueueTest" time="0.001"/>
+  <testcase name="givenQueueOfSize_8_which_contains_threeElementsOf_10_returns_10_withQueueSize_4_on_removing_6_times()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenDefaultQueue_is_empty_onRemove_returns_NoSuchElementException()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenQueueOfSize_10_returns_true_whenOffering_whenQueueIsNotFull()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenQueueOfSize_10_returns_false_whenOffering_whenQueueIsFull()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenDefaultQueue_returns_true_whenOffering_whenQueueIsNotFull()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenDefaultQueue_returns_NullPointerException_whenAdding_null()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenParametizedConstructor_ofSize_10_returns_sizeOf_10()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenDefaultQueue_returns_true_whenOffering_whenQueueHasSpace()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenDefaultQueue_returns_true_whenAdding_valueOf_10()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <testcase name="givenDefaultQueue_which_contains_oneElementOf_10_returns_1_withSizeOf_0_on_remove()" classname="org.CustomQueue.CustomQueueTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
