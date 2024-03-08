@@ -2,7 +2,7 @@ package org.CustomQueue;
 
 import java.util.NoSuchElementException;
 
-public class CustomQueue<T> {
+public class CustomQueue<T> implements Queue<T> {
     private T[] queue;
 
     private int size = 32;
