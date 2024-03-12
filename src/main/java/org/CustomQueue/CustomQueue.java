@@ -67,9 +67,8 @@ public class CustomQueue<T> implements Queue<T> {
     private void reduce() {
         if((tailIndex - headIndex) == queue.length / 4) {
             T[] temp = (T[]) new Object[(tailIndex - headIndex) * 2];
-            for(int i = headIndex, insertIndex = 0; headIndex <= tailIndex; headIndex++, insertIndex++) {
+            for(int i = headIndex, insertIndex = 0; headIndex <= tailIndex; headIndex++, insertIndex++)
                 temp[insertIndex] = queue[i];
-            }
             tailIndex = headIndex - tailIndex + 1;
             headIndex = 0;
             queue = temp;
