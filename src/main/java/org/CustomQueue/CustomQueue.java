@@ -85,9 +85,7 @@ public class CustomQueue<T> implements Queue<T> {
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(size, headIndex, tailIndex);
-        result = 31 * result + Arrays.hashCode(queue);
-        return result;
+        return 31 * Objects.hash(size, headIndex, tailIndex) + Arrays.hashCode(queue);
     }
 
     @Override
