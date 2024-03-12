@@ -1,5 +1,8 @@
 package org.CustomQueue;
 
+/**
+ * @param <T>
+ */
 public interface Queue<T> {
 
     /**
