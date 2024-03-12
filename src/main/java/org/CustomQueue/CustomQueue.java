@@ -20,7 +20,7 @@ public class CustomQueue<T> implements Queue<T> {
         queue = (T[]) new Object[size];
     }
 
-    public boolean add(T item) {
+    public boolean enqueue(T item) {
         if(item == null) throw new NullPointerException();
         if(tailIndex == size) expand();
         queue[tailIndex++] = item;
@@ -41,7 +41,7 @@ public class CustomQueue<T> implements Queue<T> {
         return item;
     }
 
-    public T poll() {
+    public T dequeue() {
         if(queue[headIndex] == null) return null;
         T item = queue[headIndex++];
         if((tailIndex - headIndex) == queue.length / 4) reduce();

@@ -8,7 +8,7 @@ public interface Queue<T> {
      * @return boolean true if added else false
      * @throws NullPointerException on null item
      */
-    boolean add(T item);
+    boolean enqueue(T item);
 
     /**
      * Offer item to end of queue
@@ -30,7 +30,7 @@ public interface Queue<T> {
      * @return T item returned
      * @throws NullPointerException on null item
      */
-    T poll();
+    T dequeue();
 
     /**
      * Get size of queue

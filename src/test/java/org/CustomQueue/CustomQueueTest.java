@@ -27,19 +27,19 @@ class CustomQueueTest {
     @Test
     public void givenDefaultQueue_returns_NullPointerException_whenAdding_null() {
         CustomQueue<Object> customQueue = new CustomQueue<>();
-        assertThrows(NullPointerException.class, ()-> customQueue.add(null));
+        assertThrows(NullPointerException.class, ()-> customQueue.enqueue(null));
     }
 
     @Test
     public void givenQueue_ofSize_10_returns_NullPointerException_whenAdding_null() {
         CustomQueue<Object> customQueue = new CustomQueue<>(10);
-        assertThrows(NullPointerException.class, ()-> customQueue.add(null));
+        assertThrows(NullPointerException.class, ()-> customQueue.enqueue(null));
     }
 
     @Test
     public void givenDefaultQueue_returns_true_whenAdding_valueOf_10() {
         CustomQueue<Object> customQueue = new CustomQueue<>();
-        assertTrue(customQueue.add(10));
+        assertTrue(customQueue.enqueue(10));
         assertEquals(1, customQueue.getSize());
     }
 
@@ -47,7 +47,7 @@ class CustomQueueTest {
     public void givenDefaultQueue_returns_true_whenAdding_10() {
         CustomQueue<Object> customQueue = new CustomQueue<>();
         Object item = 10;
-        assertTrue(customQueue.add(item));
+        assertTrue(customQueue.enqueue(item));
     }
 
     @Test
@@ -55,7 +55,7 @@ class CustomQueueTest {
         CustomQueue<Object> customQueue = new CustomQueue<>(2);
         Object item = 10;
         for(int i = 0; i < 10; i++)
-            customQueue.add(item);
+            customQueue.enqueue(item);
         assertEquals(16, customQueue.getQueueSize());
     }
 
@@ -64,7 +64,7 @@ class CustomQueueTest {
         CustomQueue<Object> customQueue = new CustomQueue<>(2);
         Object item = 10;
         for(int i = 0; i < 33; i++)
-            customQueue.add(item);
+            customQueue.enqueue(item);
         assertEquals(64, customQueue.getQueueSize());
     }
 
@@ -85,7 +85,7 @@ class CustomQueueTest {
         CustomQueue<Object> customQueue = new CustomQueue<>();
         Object item = 10;
         for(int i = 0; i < 32; i++)
-            customQueue.add(item);
+            customQueue.enqueue(item);
         assertFalse(customQueue.offer(item));
     }
 
@@ -100,7 +100,7 @@ class CustomQueueTest {
         CustomQueue<Object> customQueue = new CustomQueue<>(10);
         Object item = 10;
         for(int i = 0; i < 10; i++)
-            customQueue.add(item);
+            customQueue.enqueue(item);
         assertFalse(customQueue.offer(10));
     }
 
@@ -126,7 +126,7 @@ class CustomQueueTest {
     public void givenDefaultQueue_which_contains_oneElementOf_10_returns_1_withSizeOf_0_on_remove() {
         CustomQueue<Object> customQueue = new CustomQueue<>();
         Object item = 10;
-        customQueue.add(item);
+        customQueue.enqueue(item);
         assertEquals(item, customQueue.remove());
         assertEquals(0, customQueue.getSize());
     }
@@ -135,7 +135,7 @@ class CustomQueueTest {
     public void givenQueueOfSize_10_which_contains_oneElementOf_10_returns_10_withSizeOf_0_on_remove() {
         CustomQueue<Object> customQueue = new CustomQueue<>(10);
         Object item = 10;
-        customQueue.add(item);
+        customQueue.enqueue(item);
         assertEquals(item, customQueue.remove());
         assertEquals(0, customQueue.getSize());
     }
@@ -145,7 +145,7 @@ class CustomQueueTest {
         CustomQueue<Object> customQueue = new CustomQueue<>(8);
         Object item = 10;
         for(int i = 0; i < 8; i++)
-            customQueue.add(item);
+            customQueue.enqueue(item);
         for(int i = 0; i < 5; i++) {
             customQueue.remove();
         }
@@ -158,15 +158,15 @@ class CustomQueueTest {
     @Test
     public void givenDefaultQueue_is_empty_returns_null_on_poll() {
         CustomQueue<Object> customQueue = new CustomQueue<>();
-        assertNull(customQueue.poll());
+        assertNull(customQueue.dequeue());
     }
 
     @Test
     public void givenDefaultQueue_which_contains_oneElementOf_10_returns_1_withSizeOf_0_on_poll() {
         CustomQueue<Object> customQueue = new CustomQueue<>();
         Object item = 10;
-        customQueue.add(item);
-        assertEquals(item, customQueue.poll());
+        customQueue.enqueue(item);
+        assertEquals(item, customQueue.dequeue());
         assertEquals(0, customQueue.getSize());
     }
 
@@ -174,8 +174,8 @@ class CustomQueueTest {
     public void givenQueueOfSize_10_which_contains_oneElementOf_10_returns_10_withSizeOf_0_on_poll() {
         CustomQueue<Object> customQueue = new CustomQueue<>(10);
         Object item = 10;
-        customQueue.add(item);
-        assertEquals(item, customQueue.poll());
+        customQueue.enqueue(item);
+        assertEquals(item, customQueue.dequeue());
         assertEquals(0, customQueue.getSize());
     }
 
@@ -184,9 +184,9 @@ class CustomQueueTest {
         CustomQueue<Object> customQueue = new CustomQueue<>(8);
         Object item = 10;
         for(int i = 0; i < 8; i++)
-            customQueue.add(item);
+            customQueue.enqueue(item);
         for(int i = 0; i < 5; i++) {
-            customQueue.poll();
+            customQueue.dequeue();
         }
         assertEquals(item, customQueue.remove());
         assertEquals(2, customQueue.getSize());
