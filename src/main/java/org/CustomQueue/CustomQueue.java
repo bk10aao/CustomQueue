@@ -90,4 +90,14 @@ public class CustomQueue<T> implements Queue<T> {
         result = 31 * result + Arrays.hashCode(queue);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "CustomQueue{" +
+                "queue=" + Arrays.toString(queue) +
+                ", size=" + size +
+                ", headIndex=" + headIndex +
+                ", tailIndex=" + tailIndex +
+                '}';
+    }
 }
