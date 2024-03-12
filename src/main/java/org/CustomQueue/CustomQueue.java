@@ -1,6 +1,8 @@
 package org.CustomQueue;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 public class CustomQueue<T> implements Queue<T> {
     private T[] queue;
@@ -72,5 +74,20 @@ public class CustomQueue<T> implements Queue<T> {
             headIndex = 0;
             queue = temp;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomQueue<?> that = (CustomQueue<?>) o;
+        return size == that.size && headIndex == that.headIndex && tailIndex == that.tailIndex && Arrays.equals(queue, that.queue);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(size, headIndex, tailIndex);
+        result = 31 * result + Arrays.hashCode(queue);
+        return result;
     }
 }
