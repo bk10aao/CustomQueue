@@ -146,15 +146,13 @@ class CustomQueueTest {
         Object item = 10;
         for(int i = 0; i < 8; i++)
             customQueue.enqueue(item);
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 5; i++)
             customQueue.remove();
-        }
         assertEquals(item, customQueue.remove());
         assertEquals(2, customQueue.getSize());
         assertEquals(4, customQueue.getQueueSize());
     }
 
-    ///////HERE
     @Test
     public void givenDefaultQueue_is_empty_returns_null_on_poll() {
         CustomQueue<Object> customQueue = new CustomQueue<>();
@@ -185,9 +183,8 @@ class CustomQueueTest {
         Object item = 10;
         for(int i = 0; i < 8; i++)
             customQueue.enqueue(item);
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 5; i++)
             customQueue.dequeue();
-        }
         assertEquals(item, customQueue.remove());
         assertEquals(2, customQueue.getSize());
         assertEquals(4, customQueue.getQueueSize());
