@@ -5,23 +5,23 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 
 @SuppressWarnings("unchecked")
-public class CustomQueue<T> implements Queue<T> {
-    private T[] queue;
+public class CustomQueue<E> implements Queue<E> {
+    private E[] queue;
 
     private int size = 32;
     private int headIndex = 0;
     private int tailIndex = 0;
 
     CustomQueue() {
-        queue = (T[]) new Object[size];
+        queue = (E[]) new Object[size];
     }
 
     CustomQueue(final int size) {
         this.size = size;
-        queue = (T[]) new Object[size];
+        queue = (E[]) new Object[size];
     }
 
-    public boolean enqueue(final T item) {
+    public boolean enqueue(final E item) {
         if(item == null)
             throw new NullPointerException();
         if(tailIndex == size)
@@ -30,16 +30,16 @@ public class CustomQueue<T> implements Queue<T> {
         return true;
     }
 
-    public T dequeue() {
+    public E dequeue() {
         if(queue[headIndex] == null)
             return null;
-        T item = queue[headIndex++];
+        E item = queue[headIndex++];
         if((tailIndex - headIndex) == queue.length / 4)
             reduce();
         return item;
     }
 
-    public boolean offer(final T item) {
+    public boolean offer(final E item) {
         if(item == null)
             throw new NullPointerException();
         if(tailIndex == size)
@@ -48,10 +48,10 @@ public class CustomQueue<T> implements Queue<T> {
         return true;
     }
 
-    public T remove() {
+    public E remove() {
         if(queue[headIndex] == null)
             throw new NoSuchElementException();
-        T item = queue[headIndex++];
+        E item = queue[headIndex++];
         if((tailIndex - headIndex) == queue.length / 4)
             reduce();
         return item;
@@ -92,7 +92,7 @@ public class CustomQueue<T> implements Queue<T> {
 
     private void expand() {
         size = tailIndex * 2;
-        T[] temp = (T[]) new Object[size];
+        E[] temp = (E[]) new Object[size];
         System.arraycopy(queue, headIndex, temp, 0, size / 2);
         headIndex = 0;
         queue = temp;
@@ -100,7 +100,7 @@ public class CustomQueue<T> implements Queue<T> {
 
     private void reduce() {
         if((tailIndex - headIndex) == queue.length / 4) {
-            T[] temp = (T[]) new Object[(tailIndex - headIndex) * 2];
+            E[] temp = (E[]) new Object[(tailIndex - headIndex) * 2];
             for(int i = headIndex, insertIndex = 0; headIndex <= tailIndex; headIndex++, insertIndex++)
                 temp[insertIndex] = queue[i];
             tailIndex = headIndex - tailIndex + 1;

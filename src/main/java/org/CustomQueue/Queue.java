@@ -1,9 +1,9 @@
 package org.CustomQueue;
 
 /**
- * @param <T>
+ * @param <E>
  */
-public interface Queue<T> {
+public interface Queue<E> {
 
     /**
      * Add item to end of queue
@@ -11,7 +11,7 @@ public interface Queue<T> {
      * @return boolean true if added else false
      * @throws NullPointerException on null item
      */
-    boolean enqueue(T item);
+    boolean enqueue(E item);
 
     /**
      * Offer item to end of queue
@@ -19,21 +19,21 @@ public interface Queue<T> {
      * @return boolean true if added else false
      * @throws NullPointerException on null item
      */
-    boolean offer(T item);
+    boolean offer(E item);
 
     /**
      * Remove item from front of queue
-     * @return T item returned
+     * @return E item returned
      * @throws NullPointerException on null item
      */
-    T remove();
+    E remove();
 
     /**
      * Remove item from front of queue
-     * @return T item returned
+     * @return E item returned
      * @throws NullPointerException on null item
      */
-    T dequeue();
+    E dequeue();
 
     /**
      * Get size of queue
