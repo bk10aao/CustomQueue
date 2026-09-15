@@ -1,4 +1,4 @@
-package org.CustomQueue;
+package CustomQueue;
 
 import org.junit.jupiter.api.Test;
 

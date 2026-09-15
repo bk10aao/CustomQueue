@@ -1,4 +1,4 @@
-package org.CustomQueue;
+package CustomQueue;
 
 import java.util.Arrays;
 import java.util.Collection;
