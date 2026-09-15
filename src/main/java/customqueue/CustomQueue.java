@@ -1,4 +1,4 @@
-package CustomQueue;
+package customqueue;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,7 +27,7 @@ import static java.util.Objects.requireNonNull;
  * a {@code null} argument or a collection containing {@code null}.
  *
  * <p>This class is <b>not</b> thread-safe. If multiple threads access a
- * {@code CustomQueue} instance concurrently, and at least one of the
+ * {@code customqueue} instance concurrently, and at least one of the
  * threads modifies it structurally, it must be synchronized externally.
  *
  * <p>The {@link Iterator} returned by {@link #iterator()} is

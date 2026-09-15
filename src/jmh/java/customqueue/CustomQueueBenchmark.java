@@ -1,4 +1,4 @@
-package CustomQueue;
+package customqueue;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.results.RunResult;

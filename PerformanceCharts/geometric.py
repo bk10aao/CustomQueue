@@ -139,7 +139,7 @@ for idx, (bar, r) in enumerate(zip(bars, sorted_ratios)):
 
 ax.set_title(
     (
-        'Overall Relative Performance Comparison (CustomQueue V1 vs CustomQueue V2)\n'
+        'Overall Relative Performance Comparison (customqueue V1 vs customqueue V2)\n'
         '(Geometric Mean Across All Sizes)'
     ),
     fontsize=14,

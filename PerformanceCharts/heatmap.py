@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load data files
-# CustomQueueV2 acts as the primary/custom comparison, CustomQueue as the baseline
+# CustomQueueV2 acts as the primary/custom comparison, customqueue as the baseline
 cdll_df = pd.read_csv('CustomQueueV2_wide_matrix.csv', sep=';')
 ll_df = pd.read_csv('CustomQueue_wide_matrix.csv', sep=';')
 

@@ -4,7 +4,7 @@ plugins {
     id 'me.champeau.jmh' version '0.7.2'
 }
 
-group = 'org.example'
+group = 'customqueue'
 version = '1.0-SNAPSHOT'
 
 repositories {
