@@ -82,7 +82,7 @@ public class CustomQueue<E> implements Queue<E> {
      * @throws IllegalArgumentException if {@code size} is negative
      */
     public CustomQueue(final int size) {
-        if(size < 0)
+        if (size < 0)
             throw new IllegalArgumentException();
         int capacity = 16;
         while (capacity < size && capacity > 0)
@@ -145,16 +145,16 @@ public class CustomQueue<E> implements Queue<E> {
      */
     public boolean addAll(final Collection<? extends E> c) {
         requireNonNull(c);
-        if(c.isEmpty())
+        if (c.isEmpty())
             return false;
-        if(c == this)
+        if (c == this)
             throw new IllegalArgumentException();
         for (E e : c)
             requireNonNull(e);
         int minimumCapacity = size() + c.size();
         if (tailIndex + c.size() > queue.length)
             expand(minimumCapacity);
-        for(E e : c)
+        for (E e : c)
             queue[tailIndex++] = e;
         modCount++;
         return true;
@@ -183,7 +183,7 @@ public class CustomQueue<E> implements Queue<E> {
      *         slot before finding a match (not expected under normal use)
      */
     public boolean contains(final Object o) {
-        for(int i = headIndex; i < tailIndex; i++)
+        for (int i = headIndex; i < tailIndex; i++)
             if (queue[i].equals(o))
                 return true;
         return false;
@@ -221,7 +221,7 @@ public class CustomQueue<E> implements Queue<E> {
      * @throws NoSuchElementException if this queue is empty
      */
     public E element() {
-        if(headIndex == tailIndex)
+        if (headIndex == tailIndex)
             throw new NoSuchElementException();
         return (E) queue[headIndex];
     }
@@ -284,7 +284,7 @@ public class CustomQueue<E> implements Queue<E> {
      * @return the head of this queue, or {@code null} if this queue is empty
      */
     public E poll() {
-        if(size() == 0)
+        if (size() == 0)
             return null;
         return remove();
     }
@@ -299,7 +299,7 @@ public class CustomQueue<E> implements Queue<E> {
      * @throws NoSuchElementException if this queue is empty
      */
     public E remove() {
-        if(isEmpty())
+        if (isEmpty())
             throw new NoSuchElementException();
         E e = (E) queue[headIndex];
         queue[headIndex++] = null;
@@ -346,7 +346,7 @@ public class CustomQueue<E> implements Queue<E> {
         Set<?> values = (c instanceof Set<?> s) ? s : new HashSet<>(c);
         int index = headIndex;
         boolean modified = false;
-        for(int x = headIndex; x < tailIndex; x++)
+        for (int x = headIndex; x < tailIndex; x++)
             if (!values.contains(queue[x]))
                 queue[index++] = queue[x];
             else
@@ -366,7 +366,7 @@ public class CustomQueue<E> implements Queue<E> {
      */
     public boolean retainAll(final Collection<?> c) {
         requireNonNull(c);
-        if(isEmpty() || c == this)
+        if (isEmpty() || c == this)
             return false;
         Set<?> set = (c instanceof Set) ? (Set<?>) c : new HashSet<>(c);
         boolean modified = false;
