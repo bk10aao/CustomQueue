@@ -24,7 +24,7 @@ public class CustomQueue<E> implements Queue<E> {
         this(16);
     }
 
-    public CustomQueue(int size) {
+    public CustomQueue(final int size) {
         if(size < 0)
             throw new IllegalArgumentException();
         int capacity = 16;
@@ -35,7 +35,7 @@ public class CustomQueue<E> implements Queue<E> {
         this.queue = new Object[capacity];
     }
 
-    public CustomQueue(Collection<? extends E> c) {
+    public CustomQueue(final Collection<? extends E> c) {
         requireNonNull(c);
         int capacity = 16;
         while (capacity < c.size() && capacity > 0)
@@ -49,7 +49,7 @@ public class CustomQueue<E> implements Queue<E> {
         }
     }
 
-    public boolean add(E item) {
+    public boolean add(final E item) {
         requireNonNull(item);
         if (tailIndex >= queue.length)
             expand(size() + 1);
@@ -58,7 +58,7 @@ public class CustomQueue<E> implements Queue<E> {
         return true;
     }
 
-    public boolean addAll(Collection<? extends E> c) {
+    public boolean addAll(final Collection<? extends E> c) {
         requireNonNull(c);
         if(c.isEmpty())
             return false;
@@ -82,14 +82,14 @@ public class CustomQueue<E> implements Queue<E> {
         modCount++;
     }
 
-    public boolean contains(Object o) {
+    public boolean contains(final Object o) {
         for(int i = headIndex; i < tailIndex; i++)
             if (queue[i].equals(o))
                 return true;
         return false;
     }
 
-    public boolean containsAll(Collection<?> c) {
+    public boolean containsAll(final Collection<?> c) {
         requireNonNull(c);
         if (c.isEmpty())
             return true;
@@ -116,7 +116,7 @@ public class CustomQueue<E> implements Queue<E> {
         return new QueueIterator();
     }
 
-    public boolean offer(E item) {
+    public boolean offer(final E item) {
         return add(item);
     }
 
@@ -141,7 +141,7 @@ public class CustomQueue<E> implements Queue<E> {
         return e;
     }
 
-    public boolean remove(Object o) {
+    public boolean remove(final Object o) {
         if (o == null || isEmpty())
             return false;
         for (int i = headIndex; i < tailIndex; i++)
@@ -154,7 +154,7 @@ public class CustomQueue<E> implements Queue<E> {
 
 
 
-    public boolean removeAll(Collection<?> c) {
+    public boolean removeAll(final Collection<?> c) {
         requireNonNull(c);
         if (isEmpty() || c.isEmpty())
             return false;
@@ -174,7 +174,7 @@ public class CustomQueue<E> implements Queue<E> {
         return modified;
     }
 
-    public boolean retainAll(Collection<?> c) {
+    public boolean retainAll(final Collection<?> c) {
         requireNonNull(c);
         if(isEmpty() || c == this)
             return false;
@@ -198,7 +198,7 @@ public class CustomQueue<E> implements Queue<E> {
         return Arrays.copyOfRange(queue, headIndex, tailIndex);
     }
 
-    public <T> T[] toArray(T[] a) {
+    public <T> T[] toArray(final T[] a) {
         requireNonNull(a);
         int size = size();
         if (a.length < size)
@@ -214,7 +214,7 @@ public class CustomQueue<E> implements Queue<E> {
         return Arrays.toString(Arrays.copyOfRange(queue, headIndex, tailIndex, Object[].class));
     }
 
-    private void expand(int minCapacity) {
+    private void expand(final int minCapacity) {
         int currentSize = tailIndex - headIndex;
         if (currentSize < minCapacity && (queue.length - currentSize) >= (minCapacity - currentSize)) {
             System.arraycopy(queue, headIndex, queue, 0, currentSize);
@@ -236,7 +236,7 @@ public class CustomQueue<E> implements Queue<E> {
         this.tailIndex = currentSize;
     }
 
-    private void nullIndexes(int index) {
+    private void nullIndexes(final int index) {
         if (index < tailIndex) {
             fill(queue, index, tailIndex, null);
             tailIndex = index;
@@ -244,7 +244,7 @@ public class CustomQueue<E> implements Queue<E> {
         }
     }
 
-    private void removeAt(int i) {
+    private void removeAt(final int i) {
         int numMoved = tailIndex - i - 1;
         if (numMoved > 0)
             System.arraycopy(queue, i + 1, queue, i, numMoved);
