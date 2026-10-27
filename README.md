@@ -1,6 +1,5 @@
 # Queue
-Implementation of a Queue using an array, a singly LinkedList verison can be found found [here](https://github.com/bk10aao/CustomQueueV2). 
-
+Implementation of a Queue using an array, a singly LinkedList version can be found [here](https://github.com/bk10aao/CustomQueueV2). 
 
 # Time Complexity
 
