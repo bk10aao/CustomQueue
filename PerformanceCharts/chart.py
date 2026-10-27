@@ -27,10 +27,9 @@ if "Size" in jdk_df.columns:
     jdk_df = jdk_df.sort_values("Size")
 
 # Common columns to plot (excluding Size and Winner if present)
-exclude_cols = {"Size", "Winner"}
 valid_cols = [
     col for col in custom_df.columns
-    if col not in exclude_cols and col in jdk_df.columns
+    if col in jdk_df.columns
 ]
 
 # ---------------------------------------------------------------------------

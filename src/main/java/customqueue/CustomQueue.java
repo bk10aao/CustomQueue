@@ -27,7 +27,7 @@ import static java.util.Objects.requireNonNull;
  * a {@code null} argument or a collection containing {@code null}.
  *
  * <p>This class is <b>not</b> thread-safe. If multiple threads access a
- * {@code customqueue} instance concurrently, and at least one of the
+ * {@code custom queue} instance concurrently, and at least one of the
  * threads modifies it structurally, it must be synchronized externally.
  *
  * <p>The {@link Iterator} returned by {@link #iterator()} is
@@ -168,7 +168,7 @@ public class CustomQueue<E> implements Queue<E> {
     public void clear() {
         while (headIndex < tailIndex)
             queue[headIndex++] = null;
-        tailIndex = headIndex = 0;
+        headIndex = tailIndex = 0;
         modCount++;
     }
 
@@ -272,7 +272,7 @@ public class CustomQueue<E> implements Queue<E> {
      * @return the head of this queue, or {@code null} if this queue is empty
      */
     public E peek() {
-        if (isEmpty())
+        if (headIndex == tailIndex)
             return null;
         return (E) queue[headIndex];
     }
@@ -284,7 +284,7 @@ public class CustomQueue<E> implements Queue<E> {
      * @return the head of this queue, or {@code null} if this queue is empty
      */
     public E poll() {
-        if (size() == 0)
+        if (headIndex == tailIndex)
             return null;
         return remove();
     }
@@ -299,7 +299,7 @@ public class CustomQueue<E> implements Queue<E> {
      * @throws NoSuchElementException if this queue is empty
      */
     public E remove() {
-        if (isEmpty())
+        if (headIndex == tailIndex)
             throw new NoSuchElementException();
         E e = (E) queue[headIndex];
         queue[headIndex++] = null;
@@ -317,7 +317,7 @@ public class CustomQueue<E> implements Queue<E> {
      * @return {@code true} if this queue contained the specified element
      */
     public boolean remove(final Object o) {
-        if (o == null || isEmpty())
+        if (o == null || headIndex == tailIndex)
             return false;
         for (int i = headIndex; i < tailIndex; i++)
             if (o.equals(queue[i])) {
@@ -337,7 +337,7 @@ public class CustomQueue<E> implements Queue<E> {
      */
     public boolean removeAll(final Collection<?> c) {
         requireNonNull(c);
-        if (isEmpty() || c.isEmpty())
+        if (headIndex == tailIndex || c.isEmpty())
             return false;
         if (c == this) {
             clear();
@@ -366,7 +366,7 @@ public class CustomQueue<E> implements Queue<E> {
      */
     public boolean retainAll(final Collection<?> c) {
         requireNonNull(c);
-        if (isEmpty() || c == this)
+        if (headIndex == tailIndex || c == this)
             return false;
         Set<?> set = (c instanceof Set) ? (Set<?>) c : new HashSet<>(c);
         boolean modified = false;

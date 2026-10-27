@@ -123,7 +123,7 @@ public class CustomQueueBenchmark {
     @Benchmark
     public boolean testRemoveObject() {
         CustomQueue<Integer> q = new CustomQueue<>(sourceCollection);
-        return q.remove(Integer.valueOf(size / 2));
+        return q.remove(size / 2);
     }
 
     @Benchmark
@@ -205,7 +205,7 @@ public class CustomQueueBenchmark {
                 .measurementTime(TimeValue.seconds(1))
                 .mode(Mode.AverageTime)
                 .timeUnit(TimeUnit.NANOSECONDS)
-                .result("custom-stack-results.csv")
+                .result("custom-queue-results.csv")
                 .resultFormat(ResultFormatType.CSV)
                 .build();
 
